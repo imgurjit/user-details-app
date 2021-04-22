@@ -40,8 +40,8 @@ function getUserDetailByID(id, success, failure) {
     if (d.id == id) return d;
     else return null;
   });
-
-  success(x[0]);
+  if (x[0] !== undefined) success(x[0]);
+  else failure();
   // axios
   //   .get(server_url + "/users/" + id, {
   //     headers: {
