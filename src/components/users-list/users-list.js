@@ -4,6 +4,7 @@ import { userListActions } from "../../actions";
 import Container from "@material-ui/core/Container";
 import { makeStyles } from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
+import PropTypes from "prop-types";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -86,6 +87,12 @@ function mapState(state) {
 
   return { users };
 }
+
+UserList.propTypes = {
+  users: PropTypes.array,
+  getUsers: PropTypes.func,
+  history: PropTypes.object
+};
 
 const actionCreators = { getUsers: userListActions.getUsers };
 
