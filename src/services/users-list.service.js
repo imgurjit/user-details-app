@@ -9,26 +9,26 @@ export const userListService = {
 };
 
 function getUsers(success, failure) {
-  axios
-    .get(server_url + "/users", {
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json"
-      }
-    })
-    .then(
-      (res) => {
-        success(res.data);
-      },
-      (err) => {
-        // Using Dummy data because the API does not work sometimes
-        success(data);
-      }
-    )
-    .catch((err) => {
-      // Using Dummy data because the API does not work sometimes
-      success(data);
-    });
+  success(data);
+  // axios
+  //   .get(server_url + "/users", {
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //       Accept: "application/json"
+  //     }
+  //   })
+  //   .then(
+  //     (res) => {
+  //       success(res.data);
+  //     },
+  //     (err) => {
+  //
+  //       success(data);
+  //     }
+  //   )
+  //   .catch((err) => {
+  //     success(data);
+  //   });
 }
 
 function getUserDetailByID(id, success, failure) {
@@ -37,24 +37,23 @@ function getUserDetailByID(id, success, failure) {
     else return null;
   });
 
-  axios
-    .get(server_url + "/users/" + id, {
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json"
-      }
-    })
-    .then(
-      (res) => {
-        success(res.data);
-      },
-      (err) => {
-        // Using Dummy data because the API does not work sometimes
-        success(x[0]);
-      }
-    )
-    .catch((err) => {
-      // Using Dummy data because the API does not work sometimes
-      success(x[0]);
-    });
+  success(x[0]);
+  // axios
+  //   .get(server_url + "/users/" + id, {
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //       Accept: "application/json"
+  //     }
+  //   })
+  //   .then(
+  //     (res) => {
+  //       success(res.data);
+  //     },
+  //     (err) => {
+  //       success(x[0]);
+  //     }
+  //   )
+  //   .catch((err) => {
+  //     success(x[0]);
+  //   });
 }
