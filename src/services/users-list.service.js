@@ -1,3 +1,7 @@
+// Please note JSONHOLDER APIs are not working so I am using dummy data
+
+// GITHUB Issue : https://github.com/typicode/jsonplaceholder/issues/135
+
 import axios from "axios";
 import { data } from "./dummyData";
 
