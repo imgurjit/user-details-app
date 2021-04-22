@@ -1,4 +1,5 @@
 import axios from "axios";
+import { data } from "./dummyData";
 
 const server_url = "https://jsonplaceholder.typicode.com";
 
@@ -20,15 +21,22 @@ function getUsers(success, failure) {
         success(res.data);
       },
       (err) => {
-        failure(err);
+        // Using Dummy data because the API does not work sometimes
+        success(data);
       }
     )
     .catch((err) => {
-      failure(err);
+      // Using Dummy data because the API does not work sometimes
+      success(data);
     });
 }
 
 function getUserDetailByID(id, success, failure) {
+  let x = data.filter((d) => {
+    if (d.id == id) return d;
+    else return null;
+  });
+
   axios
     .get(server_url + "/users/" + id, {
       headers: {
@@ -41,10 +49,12 @@ function getUserDetailByID(id, success, failure) {
         success(res.data);
       },
       (err) => {
-        failure(err);
+        // Using Dummy data because the API does not work sometimes
+        success(x[0]);
       }
     )
     .catch((err) => {
-      failure(err);
+      // Using Dummy data because the API does not work sometimes
+      success(x[0]);
     });
 }
